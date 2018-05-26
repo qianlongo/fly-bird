@@ -1,17 +1,21 @@
 <template>
-  <div id="app">
+  <div id="app" class="fly-bird">
+    <GameBg />
     <router-view/>
   </div>
 </template>
 <script>
+import GameBg from './components/GameBg'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    GameBg
+  }
 }
 </script>
 
-<style>
-
-</style>
-
-<style>
+<style lang="less">
+  @import './assets/less/reset.less';
+  @import './assets/less/base.less';
 </style>

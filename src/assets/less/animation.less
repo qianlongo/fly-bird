@@ -1,0 +1,46 @@
+@import url('./common.less');
+
+.animate-sky () {
+  .keyframes(sky, {
+    0% { background-position: 0 100%; }
+    100% { background-position: -288px 100%; }
+  });
+
+  .animation(sky 8s linear infinite);
+}
+
+.animate-ground () {
+  .keyframes(ground, {
+    0% { background-position: 0 0; }
+    100% { background-position: -335px 0; }
+  });
+
+  .animation(ground 2s linear infinite);
+}
+
+.animate-init () {
+  .keyframes(init, {
+    0% {
+      .transform(translate3d(0, 0, 0));
+      background-position-x: 0;
+    }
+    50% {
+      .transform(translate3d(0, 15px, 0));
+      background-position-x: -34px;
+    }
+    100% {
+      .transform(translate3d(0, -30px, 0));
+      background-position-x: -68px;
+    }
+  });
+  .animation(init 3s linear 0s infinite alternate running);
+}
+
+.animate-init-bird () {
+  .keyframes(init-bird, {
+    from { background-position-x: 0; }
+    to { background-position: -68px; }
+  });
+
+  .animation(init-bird 300ms steps(2) infinite);
+}

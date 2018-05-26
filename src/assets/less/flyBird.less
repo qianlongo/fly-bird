@@ -1,0 +1,121 @@
+@import url('./common.less');
+@import url('./animation.less');
+
+.fly-bird{
+  position: relative;
+  
+  .animate-state-paused{
+    animation-play-state: paused !important;
+    -webkit-animation-play-state: paused !important;
+  }
+
+  .fly-bird-bg{
+    height: 100%;
+
+    .bg-sky{
+      height: 78%;
+      background-image: url('../imgs/background-1.png');
+      background-color: #068cfd;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+      .animate-sky();
+    }
+
+    .bg-ground{
+      height: 22%;
+      background-image: url('../imgs/ground.png');
+      background-color: #825705;
+      background-repeat: repeat-x;
+      background-position: 0 0;
+
+      .animate-ground();
+    }
+  }
+
+  .fly-bird-init, .fly-bird-ready, .fly-bird-playing{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .base-bird{
+    display: inline-block;
+    width: 34px;
+    height: 24px;
+    background-image: url('../imgs/bird.png');
+    .animate-init-bird();
+  }
+
+  .ready-bird, .playing-bird{
+    position: absolute;
+    top: 27%;
+    left: 11%;
+  }
+
+  .fly-bird-init{
+    .init-title-container{
+      width: 100%;
+      position: absolute;
+      top: 20%;
+      .horizontal-flex();
+      .justify-content();
+      .align-items();
+
+      .animate-init();
+
+      i{
+        display: inline-block;
+      }
+
+      .init-title{
+        width: 180px;
+        height: 48px;
+        background: url('../imgs/title.png') no-repeat;
+      }
+
+      .init-bird{
+        margin-left: 10px;
+      }
+    }
+    
+    .start-btn{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      .transform(translate(-50%, -50%));
+      display: inline-block;
+      width: 104px;
+      height: 58px;
+      background-image: url('../imgs/start-button.png');
+    }
+  }
+
+  .fly-bird-ready{
+    z-index: 100;
+
+    .ready-title, .ready-bird, .ready-instructions{
+      position: absolute;
+      display: inline-block;
+    }
+
+    .ready-title{
+      width: 184px;
+      height: 52px;
+      background-image: url('../imgs/get-ready.png');
+      top: 6%;
+      left: 50%;
+      .transform(translateX(-50%));
+    }
+
+    .ready-instructions{
+      width: 114px;
+      height: 98px;
+      background-image: url('../imgs/instructions.png');
+      left: 50%;
+      bottom: 22%;
+      .transform(translateX(-50%));
+    }
+  }
+}
