@@ -1,5 +1,5 @@
 <template>
-  <i class="bird"></i>
+  <i class="base-bird"></i>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
 <style lang="less">
   @import url('../assets/less/animation.less');
 
-  .bird{
+  .base-bird{
     display: inline-block;
     width: 34px;
     height: 24px;

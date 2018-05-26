@@ -14,12 +14,17 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      // this.init()
+      this.init()
     })
   },
   methods: {
     init () {
-      this.$bus.$emit('playState', 'paused')
+      this.$bus.$emit('playState', 'running')
+    },
+    handleStart () {
+      this.$router.push({
+        name: 'ready'
+      })
     }
   }
 }

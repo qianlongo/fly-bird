@@ -1,10 +1,13 @@
 <template>
   <div class="game-init">
-    <div class="game-title">
-      <i class="game-title-icon"></i>
-      <Bird />
+    <div class="init-title">
+      <i class="init-title-icon"></i>
+      <Bird class="init-bird" />
     </div>
-    <StartBtn class="center" />
+    <StartBtn 
+      class="center"
+      @on-click="handleStart"
+    />
   </div>
 </template>
 

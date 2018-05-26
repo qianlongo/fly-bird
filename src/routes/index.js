@@ -1,12 +1,18 @@
 import Router from 'vue-router'
 
-import Init from '../views/Init.vue'
+import Init from '../views/Init'
+import Ready from '../views/Ready'
 
 const routes = [
   {
     path: '/',
     name: 'init',
     component: Init
+  },
+  {
+    path: '/ready',
+    name: 'ready',
+    component: Ready
   }
 ]
 

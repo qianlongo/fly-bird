@@ -1,0 +1,40 @@
+@import url('./common.less');
+@import url('./animation.less');
+
+.game-ready{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 101;
+
+  .ready-title-icon, .ready-instructions{
+    position: absolute;
+    display: inline-block;
+  }
+
+  .ready-title-icon{
+    width: 184px;
+    height: 52px;
+    background-image: url('../imgs/get-ready.png');
+    top: 6%;
+    left: 50%;
+    .transform(translateX(-50%));
+  }
+
+  .ready-bird{
+    position: absolute;
+    top: 27%;
+    left: 11%;
+  }
+
+  .ready-instructions{
+    width: 114px;
+    height: 98px;
+    background-image: url('../imgs/instructions.png');
+    left: 50%;
+    bottom: 22%;
+    .transform(translateX(-50%));
+  }
+}
