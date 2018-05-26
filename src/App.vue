@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="fly-bird">
-    <GameBg />
+    <GameBg 
+      :playState="playState"
+    />
     <router-view/>
   </div>
 </template>
@@ -9,8 +11,23 @@ import GameBg from './components/GameBg'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      playState: 'running'
+    }
+  },
   components: {
     GameBg
+  },
+  mounted () {
+    this.changeGameBgAnimState()
+  },
+  methods: {
+    changeGameBgAnimState () {
+      this.$bus.$on('playState', (playState = 'running') => {
+        this.playState = playState
+      })
+    }
   }
 }
 </script>

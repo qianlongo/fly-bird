@@ -12,6 +12,42 @@ html, body {
 	height: 100%;
 }
 
+.animate-state-paused{
+  animation-play-state: paused !important;
+  -webkit-animation-play-state: paused !important;
+}
+
+.animate-state-running{
+  animation-play-state: running !important;
+  -webkit-animation-play-state: running !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+
+.ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.clear() {
+  &:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
 #app{
 	height: 100%;
 	overflow-x: hidden;

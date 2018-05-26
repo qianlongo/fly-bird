@@ -1,14 +1,25 @@
 <template>
   <!-- 游戏背景 -->
   <div class="fly-bird-bg">
-    <div class="bg-sky"></div>
-    <div class="bg-ground"></div>
+    <div :class="[ 'bg-sky', `${playStateClass}` ]"></div>
+    <div :class="[ 'bg-ground', `${playStateClass}` ]"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'gameBg'
+  name: 'gameBg',
+  props: {
+    playState: {
+      type: String,
+      default: 'running'
+    }
+  },
+  computed: {
+    playStateClass () {
+      return `animate-state-${this.playState}`
+    }
+  }
 }
 </script>
 
