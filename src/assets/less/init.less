@@ -1,0 +1,35 @@
+@import url('./common.less');
+@import url('./animation.less');
+
+.game-init{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+
+  .game-title{
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    .horizontal-flex();
+    .justify-content();
+    .align-items();
+    .animate-init();
+
+    .game-title-icon{
+      width: 180px;
+      height: 48px;
+      background: url('../imgs/title.png') no-repeat;
+      margin-right: 10px;
+    }
+  }
+
+  .center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    .transform(translate(-50%, -50%));
+  }
+}

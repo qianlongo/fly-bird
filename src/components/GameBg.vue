@@ -1,6 +1,6 @@
 <template>
   <!-- 游戏背景 -->
-  <div class="fly-bird-bg">
+  <div class="game-bg">
     <div :class="[ 'bg-sky', `${playStateClass}` ]"></div>
     <div :class="[ 'bg-ground', `${playStateClass}` ]"></div>
   </div>
@@ -27,8 +27,13 @@ export default {
   @import '../assets/less/common.less';
   @import '../assets/less/animation.less';
 
-  .fly-bird-bg{
+  .game-bg{
     height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 
     .bg-sky{
       height: 78%;

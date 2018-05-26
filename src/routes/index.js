@@ -1,12 +1,12 @@
 import Router from 'vue-router'
 
-import Test from '../views/test.vue'
+import Init from '../views/Init.vue'
 
 const routes = [
   {
-    path: '/test',
-    name: 'test',
-    component: Test
+    path: '/',
+    name: 'init',
+    component: Init
   }
 ]
 
