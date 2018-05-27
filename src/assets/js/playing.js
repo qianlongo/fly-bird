@@ -1,6 +1,11 @@
 import Pipe from '../../components/Pipe'
 import { random } from '../../utils'
 
+const WIN_H = window.innerHeight
+const BIRD_H = 24
+const BIRD_T = WIN_H * 0.27
+const BG_SKY_H = WIN_H * 0.78
+
 export default {
   name: 'playing',
   data () {
@@ -53,22 +58,8 @@ export default {
       this.startGame()
     },
     setInitData () {
-      let gameBgGroundRect = this.getGameBgGroundRect()
-      let birdRect = this.getBirdRect()
-
-      this.birdTop = birdRect.y
-      this.birdMaxTop = gameBgGroundRect.y - birdRect.height
-    },
-    getGameBgGroundRect () {
-      let $bgGround = document.querySelector('.bg-ground')
-
-      return $bgGround.getBoundingClientRect()
-    },
-    getBirdRect () {
-      let refBird = this.$refs.bird
-      let rect = refBird.$el.getBoundingClientRect()
-
-      return rect
+      this.birdTop = BIRD_T
+      this.birdMaxTop = BG_SKY_H - BIRD_H
     },
     startGame () {
       this.birdTimer = setInterval(this.birdLoop, this.birdTimeDelay)
@@ -89,14 +80,12 @@ export default {
       this.birdTop = birdTop
     },
     genPipe () {
-      let $bgSky = document.querySelector('.bg-sky')
-      let bgSkyH = $bgSky.getBoundingClientRect().height
       let minPipeH = 100
       let minPadding = 140
       let maxPadding = 200
       let padidng = random(minPadding, maxPadding)
-      let topPipeH = random(minPipeH, (bgSkyH - padidng))
-      let bottomPipeH = bgSkyH - (padidng + topPipeH)
+      let topPipeH = random(minPipeH, (BG_SKY_H - padidng))
+      let bottomPipeH = BG_SKY_H - (padidng + topPipeH)
       let pipeId = `pipeKey${this.pipeId++}`
 
       return {
