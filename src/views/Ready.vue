@@ -1,5 +1,5 @@
 <template>
-  <div class="game-ready">
+  <div class="game-ready" @click="switchToPagePlaying">
     <i class="ready-title-icon"></i>
     <Bird 
       class="ready-bird"

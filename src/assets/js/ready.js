@@ -1,10 +1,5 @@
-import Bird from '../../components/Bird'
-
 export default {
   name: 'ready',
-  components: {
-    Bird
-  },
   mounted () {
     this.$nextTick(() => {
       this.init()
@@ -13,6 +8,11 @@ export default {
   methods: {
     init () {
       this.$bus.$emit('playState', 'paused')
+    },
+    switchToPagePlaying () {
+      this.$router.push({
+        name: 'playing'
+      })
     }
   }
 }

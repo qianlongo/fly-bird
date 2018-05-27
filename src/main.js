@@ -5,8 +5,12 @@ import App from './App.vue'
 import router from './routes'
 import Bus from './plugins/Bus'
 
+import Bird from './components/Bird'
+
 Vue.use(Router)
 Vue.use(Bus)
+
+Vue.component('Bird', Bird)
 
 Vue.config.productionTip = false
 

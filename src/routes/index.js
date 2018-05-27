@@ -2,6 +2,7 @@ import Router from 'vue-router'
 
 import Init from '../views/Init'
 import Ready from '../views/Ready'
+import Playing from '../views/Playing.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/ready',
     name: 'ready',
     component: Ready
+  },
+  {
+    path: '/playing',
+    name: 'playing',
+    component: Playing
   }
 ]
 
