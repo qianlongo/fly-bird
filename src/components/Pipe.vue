@@ -1,5 +1,5 @@
 <template>
-  <div class="pipe">
+  <div class="pipe" ref="pipe">
     <i class="pipe-top" :style="topPipeStyle"></i>
     <i class="pipe-bottom" :style="bottomPipeStyle"></i>
   </div>
@@ -9,6 +9,9 @@
 export default {
   name: 'pipe',
   props: {
+    pipeId: {
+      type:[ String, Number ]
+    },
     topPipeH: {
       type:[ String, Number ]
     },
@@ -30,6 +33,19 @@ export default {
       return {
         height
       }
+    }
+  },
+  mounted () {
+    this.pipeAnimEnd()
+  },
+  methods: {
+    pipeAnimEnd () {
+      const animEnd = () => {
+        this.$emit('on-anim-end', this.pipeId)
+      }
+
+      this.$refs.pipe.addEventListener('animationend', animEnd)
+      this.$refs.pipe.addEventListener('webkitAnimationEnd', animEnd)
     }
   }
 }

@@ -5,6 +5,8 @@
       :key="index"
       :topPipeH="pipe.topPipeH"
       :bottomPipeH="pipe.bottomPipeH"
+      :pipeId="pipe.pipeId"
+      @on-anim-end="handlePipeAnimEnd"
     />
     <Bird 
       class="playing-bird"

@@ -15,9 +15,10 @@ export default {
       birdMinTop: 0,
       birdMaxTop: 0,
 
+      pipeId: 0,
       pipeTimer: null,
       pipeTimeDelay: 1400,
-      pipes: []
+      pipes: {}
     }
   },
   computed: {
@@ -95,17 +96,24 @@ export default {
       let padidng = random(minPadding, maxPadding)
       let topPipeH = random(minPipeH, (bgSkyH - padidng))
       let bottomPipeH = bgSkyH - (padidng + topPipeH)
+      let pipeId = `pipeKey${this.pipeId++}`
 
       return {
         topPipeH,
-        bottomPipeH
+        bottomPipeH,
+        pipeId
       }
     },
     pipeLoop () {
-      this.pipes.push(this.genPipe())
+      let pipe = this.genPipe()
+
+      this.pipes[ pipe.pipeId ] = pipe
     },
     handlePlaying () {
       this.birdJump()
+    },
+    handlePipeAnimEnd (pipeId) {
+      delete this.pipes[pipeId]
     }
   }
 }

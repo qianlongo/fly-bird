@@ -47,8 +47,12 @@
 
 .animate-pipe () {
   .keyframes(pipe, {
-    0% { left: 900px; }
-    100% { left: -200px; }
+    0% { 
+      left: calc(~'(100% + 600px)'); 
+      left: -webkit-calc(~'(100% + 600px)'); 
+      left: -moz-calc(~'(100% + 600px)'); 
+    }
+    100% { left: -52px; }
   });
 
   .animation(pipe 7500ms linear);
