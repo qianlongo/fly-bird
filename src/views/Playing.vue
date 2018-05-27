@@ -1,7 +1,9 @@
 <template>
-  <div class="game-playing">
+  <div class="game-playing" @touchstart="handlePlaying">
     <Bird 
       class="playing-bird"
+      ref="bird"
+      :style="birdStyle"
     />
   </div>
 </template>
