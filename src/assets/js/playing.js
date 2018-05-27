@@ -1,4 +1,5 @@
 import Pipe from '../../components/Pipe'
+import { random } from '../../utils'
 
 export default {
   name: 'playing',
@@ -6,12 +7,17 @@ export default {
     return {
       gravity: 0.25, // 重力
       velocity: 0, // 速度
+      jump: -5,
+
       birdTimer: null,
+      birdTimeDelay: 1000 / 60,
       birdTop: null,
       birdMinTop: 0,
       birdMaxTop: 0,
-      birdTimeDelay: 1000 / 60,
-      jump: -5
+
+      pipeTimer: null,
+      pipeTimeDelay: 1400,
+      pipes: []
     }
   },
   computed: {
@@ -65,6 +71,7 @@ export default {
     },
     startGame () {
       this.birdTimer = setInterval(this.birdLoop, this.birdTimeDelay)
+      this.pipeTimer = setInterval(this.pipeLoop, this.pipeTimeDelay)
     },
     birdJump () {
       this.velocity = this.jump
@@ -78,6 +85,24 @@ export default {
       birdTop = birdTop <= this.birdMinTop ? this.birdMinTop : (birdTop >= this.birdMaxTop ? this.birdMaxTop : birdTop)
 
       this.birdTop = birdTop
+    },
+    genPipe () {
+      let $bgSky = document.querySelector('.bg-sky')
+      let bgSkyH = $bgSky.getBoundingClientRect().height
+      let minPipeH = 100
+      let minPadding = 140
+      let maxPadding = 200
+      let padidng = random(minPadding, maxPadding)
+      let topPipeH = random(minPipeH, (bgSkyH - padidng))
+      let bottomPipeH = bgSkyH - (padidng + topPipeH)
+
+      return {
+        topPipeH,
+        bottomPipeH
+      }
+    },
+    pipeLoop () {
+      this.pipes.push(this.genPipe())
     },
     handlePlaying () {
       this.birdJump()

@@ -1,6 +1,11 @@
 <template>
   <div class="game-playing" @touchstart="handlePlaying">
-    <Pipe />
+    <Pipe 
+      v-for="(pipe, index) in pipes"
+      :key="index"
+      :topPipeH="pipe.topPipeH"
+      :bottomPipeH="pipe.bottomPipeH"
+    />
     <Bird 
       class="playing-bird"
       ref="bird"

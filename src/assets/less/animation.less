@@ -44,3 +44,12 @@
 
   .animation(init-bird 300ms steps(2) infinite);
 }
+
+.animate-pipe () {
+  .keyframes(pipe, {
+    0% { left: 900px; }
+    100% { left: -200px; }
+  });
+
+  .animation(pipe 7500ms linear);
+}
