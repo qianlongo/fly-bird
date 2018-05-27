@@ -76,6 +76,7 @@ export default {
     },
     birdJump () {
       this.velocity = this.jump
+      this.$refs.bird.playAudio()
     },
     birdLoop () {
       let birdTop = this.birdTop

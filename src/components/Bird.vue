@@ -1,10 +1,20 @@
 <template>
-  <i class="base-bird"></i>
+  <div class="base-bird">
+    <audio ref="audio">
+      <source src="../assets/imgs/flap.mp3" type="audio/mp3">
+    </audio>
+  </div>
+  
 </template>
 
 <script>
 export default {
-
+  name: 'bird',
+  methods: {
+    playAudio () {
+      this.$refs.audio.play()
+    }
+  }
 }
 </script>
 
