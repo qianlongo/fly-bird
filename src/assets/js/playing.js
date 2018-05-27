@@ -1,3 +1,5 @@
+import Pipe from '../../components/Pipe'
+
 export default {
   name: 'playing',
   data () {
@@ -28,6 +30,9 @@ export default {
 
       return transformObj
     }
+  },
+  components: {
+    Pipe
   },
   mounted () {
     this.$nextTick(() => {

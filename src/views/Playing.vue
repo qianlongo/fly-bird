@@ -1,5 +1,6 @@
 <template>
   <div class="game-playing" @touchstart="handlePlaying">
+    <Pipe />
     <Bird 
       class="playing-bird"
       ref="bird"
