@@ -40,7 +40,7 @@ export default {
 
   .pipe{
     position: absolute;
-    left: 0;
+    left: -100px;
     top: 0;
     height: 78%;
 
